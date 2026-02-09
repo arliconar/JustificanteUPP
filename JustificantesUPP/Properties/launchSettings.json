@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "JustificantesUPP (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "JustificantesUPP (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
