@@ -2,19 +2,208 @@
     x:Class="JustificantesUPP.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="Envío de Justificantes - UPP">
+    xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls"
+    xmlns:local="using:JustificantesUPP"
+    Title="Sistema de Justificantes - UPP">
 
-    <StackPanel Spacing="20" HorizontalAlignment="Center" VerticalAlignment="Center" Width="400">
-       
-        <Button x:ConnectionId='2' x:Name="BtnEnviar" 
-                Content="Enviar Justificante" 
-                                        
-                HorizontalAlignment="Stretch" 
-                Style="{StaticResource AccentButtonStyle}"/>
+    <Grid x:ConnectionId='2' x:Name="RootGrid">
+        <TabView x:ConnectionId='3' x:Name="MainTabView" 
+                 IsAddTabButtonVisible="False" 
+                 CanReorderTabs="True">
 
-        <ProgressRing x:ConnectionId='3' x:Name="Progreso" IsActive="False" HorizontalAlignment="Center"/>
+            <TabViewItem Header="Alumnos" IsClosable="False">
+                <TabViewItem.IconSource>
+                    <SymbolIconSource Symbol="People"/>
+                </TabViewItem.IconSource>
+                <Grid Padding="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
 
-        <TextBlock x:ConnectionId='4' x:Name="StatusText" Foreground="Gray" HorizontalAlignment="Center"/>
-    </StackPanel>
+                    <AutoSuggestBox x:ConnectionId='16' x:Name="TxtBusquedaAlumnos" 
+                            PlaceholderText="Buscar alumno por nombre o NC..." 
+                            QueryIcon="Find" 
+                                                                         
+                            Margin="0,0,0,10"/>
+
+                    <controls:DataGrid x:ConnectionId='17' x:Name="AlumnosGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="False" GridLinesVisibility="All">
+                        <controls:DataGrid.Columns>
+                            <controls:DataGridTemplateColumn Header="Seleccionar">
+                                <controls:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" />
+                                    </DataTemplate>
+                                </controls:DataGridTemplateColumn.CellTemplate>
+                            </controls:DataGridTemplateColumn>
+                            <controls:DataGridTextColumn Header="NC" Binding="{Binding Nc}" IsReadOnly="True"/>
+                            <controls:DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" IsReadOnly="True"/>
+                            <controls:DataGridTextColumn Header="Correo" Binding="{Binding Correo}" IsReadOnly="True"/>
+                            <controls:DataGridTextColumn Header="Género" Binding="{Binding Genero}" IsReadOnly="True"/>
+                        </controls:DataGrid.Columns>
+                    </controls:DataGrid>
+                </Grid>
+            </TabViewItem>
+            <TabViewItem Header="Profesores" IsClosable="False">
+                <TabViewItem.IconSource>
+                    <SymbolIconSource Symbol="Mail"/>
+                </TabViewItem.IconSource>
+                <Grid Padding="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <AutoSuggestBox x:ConnectionId='13' x:Name="TxtBusquedaProfesores" 
+                            PlaceholderText="Buscar profesor por nombre o correo..." 
+                            QueryIcon="Find" 
+                                                                            
+                            Margin="0,0,0,10"/>
+
+                    <controls:DataGrid x:ConnectionId='14' x:Name="ProfesoresGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="False" GridLinesVisibility="All">
+                        <controls:DataGrid.Columns>
+                            <controls:DataGridTemplateColumn Header="Seleccionar">
+                                <controls:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" />
+                                    </DataTemplate>
+                                </controls:DataGridTemplateColumn.CellTemplate>
+                            </controls:DataGridTemplateColumn>
+                            <controls:DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True"/>
+                            <controls:DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" IsReadOnly="True"/>
+                            <controls:DataGridTextColumn Header="Correo" Binding="{Binding Correo}" IsReadOnly="True"/>
+                        </controls:DataGrid.Columns>
+                    </controls:DataGrid>
+                </Grid>
+            </TabViewItem>
+
+            <TabViewItem Header="Fechas y motivo" IsClosable="False">
+                <TabViewItem.IconSource>
+                    <SymbolIconSource Symbol="Calendar"/>
+                </TabViewItem.IconSource>
+
+                <Grid Padding="20">
+                    <StackPanel Spacing="25" 
+                    MaxWidth="550" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center">
+
+                        <StackPanel Spacing="5" HorizontalAlignment="Center">
+                            <TextBlock Text="Configuración del Justificante" 
+                           FontSize="24" 
+                           FontWeight="Bold" 
+                           HorizontalAlignment="Center"/>
+                            <TextBlock Text="Ingresa los detalles para los documentos" 
+                           Foreground="Gray" 
+                           HorizontalAlignment="Center"/>
+                        </StackPanel>
+
+                        <Rectangle Height="1" Fill="{ThemeResource SystemControlBackgroundBaseLowBrush}" Margin="0,5"/>
+
+                        <StackPanel Orientation="Horizontal" Spacing="20" HorizontalAlignment="Center">
+                            <CalendarDatePicker x:ConnectionId='11' x:Name="DpFechaInicio" 
+                                    Header="Fecha de Inicio" 
+                                    PlaceholderText="Selecciona inicio"
+                                    Width="240"
+                                                />
+
+                            <CalendarDatePicker x:ConnectionId='12' x:Name="DpFechaFinal" 
+                                    Header="Fecha Final" 
+                                    PlaceholderText="Selecciona fin"
+                                    Width="240"/>
+                        </StackPanel>
+
+                        <StackPanel Width="550" HorizontalAlignment="Center" Spacing="5">
+                            <TextBlock Text="Motivo de la inasistencia" Margin="0,0,0,5" FontWeight="SemiBold"/>
+
+                            <CommandBar DefaultLabelPosition="Right" HorizontalAlignment="Left" Background="Transparent">
+                                <AppBarButton x:ConnectionId='8' Icon="Bold"                   ToolTipService.ToolTip="Negrita (Ctrl+B)"/>
+                                <AppBarButton x:ConnectionId='9' Icon="Italic"                     ToolTipService.ToolTip="Cursiva (Ctrl+I)"/>
+                                <AppBarButton x:ConnectionId='10' Icon="Underline"                        ToolTipService.ToolTip="Subrayado (Ctrl+U)"/>
+                            </CommandBar>
+
+                            <RichEditBox x:ConnectionId='7' x:Name="TxtMotivo" 
+                 PlaceholderText="Escribe aquí..."
+                 MinHeight="150"
+                 TextWrapping="Wrap" />
+                        </StackPanel>
+
+                        <InfoBar Title="Aviso" 
+                     Message="Los datos se aplicarán a los elementos seleccionados." 
+                     IsOpen="True" 
+                     Severity="Informational" 
+                     IsClosable="False"
+                     Width="500"/>
+
+                    </StackPanel>
+                </Grid>
+            </TabViewItem>
+
+            <TabViewItem Header="Generar" IsClosable="False">
+                <TabViewItem.IconSource>
+                    <SymbolIconSource Symbol="Document"/>
+                </TabViewItem.IconSource>
+
+                <Grid Padding="20">
+                    <StackPanel Spacing="30" 
+                    MaxWidth="500" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center">
+
+                        <StackPanel Spacing="5" HorizontalAlignment="Center">
+                            <TextBlock Text="Finalizar Justificantes" 
+                           FontSize="24" 
+                           FontWeight="Bold" 
+                           HorizontalAlignment="Center"/>
+                            <TextBlock Text="Elige cómo deseas procesar los documentos" 
+                           Foreground="Gray" 
+                           HorizontalAlignment="Center"/>
+                        </StackPanel>
+
+                        <Rectangle Height="1" Fill="{ThemeResource SystemControlBackgroundBaseLowBrush}"/>
+
+                        <StackPanel Spacing="15" Background="{ThemeResource LayerFillColorDefaultBrush}" 
+                        Padding="20" CornerRadius="8" BorderThickness="1" 
+                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}">
+
+                            <TextBlock Text="Opciones de Envío" FontWeight="SemiBold" FontSize="16"/>
+
+                            <CheckBox x:ConnectionId='5' x:Name="ChkCopiaAlumno" 
+                          Content="Enviar copia al alumno" 
+                          IsChecked="True" />
+
+                            <Button x:ConnectionId='6' x:Name="BtnEnviarCorreo" 
+                                                     
+                        HorizontalAlignment="Stretch" 
+                        Style="{StaticResource AccentButtonStyle}">
+                                <StackPanel Orientation="Horizontal" Spacing="10">
+                                    <FontIcon Glyph="&#xE715;" />
+                                    <TextBlock Text="Enviar Correos a Profesores"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+
+                        <StackPanel Spacing="15" Background="{ThemeResource LayerFillColorDefaultBrush}" 
+                        Padding="20" CornerRadius="8" BorderThickness="1" 
+                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}">
+
+                            <TextBlock Text="Documentos Físicos" FontWeight="SemiBold" FontSize="16"/>
+
+                            <Button x:ConnectionId='4' x:Name="BtnGenerarWord" 
+                                                    
+                        HorizontalAlignment="Stretch">
+                                <StackPanel Orientation="Horizontal" Spacing="10">
+                                    <FontIcon Glyph="&#xE8A5;" />
+                                    <TextBlock Text="Generar Archivo Word (.docx)"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+
+                    </StackPanel>
+                </Grid>
+            </TabViewItem>
+
+        </TabView>
+    </Grid>
 </Window>
 

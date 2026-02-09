@@ -10,14 +10,14 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>035684aa-29d0-43a6-a245-efe8b77789ed</PackageIdentityName>
     <PackageIdentityPublisher>CN=artzm</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\artzm\source\repos\JustificantesUPP\JustificantesUPP\obj\x64\Debug\net10.0-windows10.0.19041.0\win-x64\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\artzm\source\repos\JustificanteUPP\JustificantesUPP\obj\x64\Debug\net10.0-windows10.0.19041.0\win-x64\</IntermediateOutputPath>
     <RemoteDeploymentType>CopyToDevice</RemoteDeploymentType>
     <PackageRegistrationPath>
     </PackageRegistrationPath>
     <RemoveNonLayoutFiles>false</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\artzm\source\repos\JustificantesUPP\JustificantesUPP\bin\x64\Debug\net10.0-windows10.0.19041.0\win-x64\AppX</LayoutDir>
+    <LayoutDir>C:\Users\artzm\source\repos\JustificanteUPP\JustificantesUPP\bin\x64\Debug\net10.0-windows10.0.19041.0\win-x64\AppX</LayoutDir>
     <RegisteredManifestChecksum>DB204BE9E7AC609ED3EBDB98C5CE7AEE50955CA6FEBBBC2EC7B9594801F690B5</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>035684aa-29d0-43a6-a245-efe8b77789ed_1.0.0.0_x64__nryzrr6eggsxt</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>035684aa-29d0-43a6-a245-efe8b77789ed_nryzrr6eggsxt!App</RegisteredUserModeAppID>
@@ -26,24 +26,24 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\artzm\source\repos\JustificantesUPP\JustificantesUPP\bin\x64\Debug\net10.0-windows10.0.19041.0\win-x64\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\artzm\source\repos\JustificanteUPP\JustificantesUPP\bin\x64\Debug\net10.0-windows10.0.19041.0\win-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2026-02-09T15:37:02.199</Modified>
+      <Modified>2026-02-09T20:29:30.698</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\artzm\source\repos\JustificantesUPP\JustificantesUPP\bin\x64\Debug\net10.0-windows10.0.19041.0\win-x64\JustificantesUPP.runtimeconfig.json">
+    <AppxPackagedFile Include="C:\Users\artzm\source\repos\JustificanteUPP\JustificantesUPP\bin\x64\Debug\net10.0-windows10.0.19041.0\win-x64\JustificantesUPP.runtimeconfig.json">
       <PackagePath>JustificantesUPP.runtimeconfig.json</PackagePath>
-      <Modified>2026-02-09T15:36:01.088</Modified>
+      <Modified>2026-02-09T18:04:36.464</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\artzm\source\repos\JustificantesUPP\JustificantesUPP\obj\x64\Debug\net10.0-windows10.0.19041.0\win-x64\apphost.exe">
+    <AppxPackagedFile Include="C:\Users\artzm\source\repos\JustificanteUPP\JustificantesUPP\obj\x64\Debug\net10.0-windows10.0.19041.0\win-x64\apphost.exe">
       <PackagePath>JustificantesUPP.exe</PackagePath>
-      <Modified>2026-02-09T15:37:01.807</Modified>
+      <Modified>2026-02-09T20:29:30.155</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\artzm\source\repos\JustificantesUPP\JustificantesUPP\obj\x64\Debug\net10.0-windows10.0.19041.0\win-x64\JustificantesUPP.dll">
+    <AppxPackagedFile Include="C:\Users\artzm\source\repos\JustificanteUPP\JustificantesUPP\obj\x64\Debug\net10.0-windows10.0.19041.0\win-x64\JustificantesUPP.dll">
       <PackagePath>JustificantesUPP.dll</PackagePath>
-      <Modified>2026-02-09T15:37:01.801</Modified>
+      <Modified>2026-02-09T20:29:30.148</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\artzm\.nuget\packages\microsoft.netcore.app.runtime.win-x64\10.0.2\runtimes\win-x64\lib\net10.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -801,6 +801,10 @@
       <PackagePath>WinRT.Runtime.dll</PackagePath>
       <Modified>2024-11-11T17:23:04.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\artzm\.nuget\packages\communitytoolkit.winui.ui.controls.datagrid\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.DataGrid.dll">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.DataGrid.dll</PackagePath>
+      <Modified>2021-11-18T21:56:52.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\artzm\.nuget\packages\google.apis\1.73.0\lib\net6.0\Google.Apis.dll">
       <PackagePath>Google.Apis.dll</PackagePath>
       <Modified>2025-11-20T05:24:24.000</Modified>
@@ -1001,17 +1005,17 @@
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
       <Modified>2025-09-16T08:04:24.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\artzm\.nuget\packages\sqlitepclraw.bundle_e_sqlite3\2.1.11\lib\netstandard2.0\SQLitePCLRaw.batteries_v2.dll">
+    <AppxPackagedFile Include="C:\Users\artzm\.nuget\packages\sqlitepclraw.config.e_sqlite3\3.0.2\lib\net8.0\SQLitePCLRaw.batteries_v2.dll">
       <PackagePath>SQLitePCLRaw.batteries_v2.dll</PackagePath>
-      <Modified>2025-03-07T19:46:32.000</Modified>
+      <Modified>2025-09-02T16:23:12.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\artzm\.nuget\packages\sqlitepclraw.core\2.1.11\lib\netstandard2.0\SQLitePCLRaw.core.dll">
+    <AppxPackagedFile Include="C:\Users\artzm\.nuget\packages\sqlitepclraw.core\3.0.2\lib\netstandard2.0\SQLitePCLRaw.core.dll">
       <PackagePath>SQLitePCLRaw.core.dll</PackagePath>
-      <Modified>2025-03-07T19:45:06.000</Modified>
+      <Modified>2025-09-02T16:22:34.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\artzm\.nuget\packages\sqlitepclraw.provider.e_sqlite3\2.1.11\lib\net6.0-windows7.0\SQLitePCLRaw.provider.e_sqlite3.dll">
+    <AppxPackagedFile Include="C:\Users\artzm\.nuget\packages\sqlitepclraw.provider.e_sqlite3\3.0.2\lib\net8.0-windows7.0\SQLitePCLRaw.provider.e_sqlite3.dll">
       <PackagePath>SQLitePCLRaw.provider.e_sqlite3.dll</PackagePath>
-      <Modified>2025-03-07T19:45:20.000</Modified>
+      <Modified>2025-09-02T16:22:50.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\artzm\.nuget\packages\system.codedom\7.0.0\lib\net7.0\System.CodeDom.dll">
       <PackagePath>System.CodeDom.dll</PackagePath>
@@ -1037,9 +1041,9 @@
       <PackagePath>Microsoft.WindowsAppRuntime.Bootstrap.dll</PackagePath>
       <Modified>2025-12-20T19:23:24.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\artzm\.nuget\packages\sqlitepclraw.lib.e_sqlite3\2.1.11\runtimes\win-x64\native\e_sqlite3.dll">
+    <AppxPackagedFile Include="C:\Users\artzm\.nuget\packages\sourcegear.sqlite3\3.50.4.2\runtimes\win-x64\native\e_sqlite3.dll">
       <PackagePath>e_sqlite3.dll</PackagePath>
-      <Modified>2025-03-07T19:39:30.000</Modified>
+      <Modified>2025-09-02T15:26:46.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\artzm\.nuget\packages\microsoft.web.webview2\1.0.3179.45\runtimes\win-x64\native_uap\Microsoft.Web.WebView2.Core.dll">
       <PackagePath>Microsoft.Web.WebView2.Core.dll</PackagePath>
@@ -1049,35 +1053,39 @@
       <PackagePath>Microsoft.Web.WebView2.Core.Projection.dll</PackagePath>
       <Modified>2025-03-30T09:04:20.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\artzm\source\repos\JustificantesUPP\JustificantesUPP\bin\x64\Debug\net10.0-windows10.0.19041.0\win-x64\JustificantesUPP.deps.json">
+    <AppxPackagedFile Include="C:\Users\artzm\source\repos\JustificanteUPP\JustificantesUPP\bin\x64\Debug\net10.0-windows10.0.19041.0\win-x64\JustificantesUPP.deps.json">
       <PackagePath>JustificantesUPP.deps.json</PackagePath>
-      <Modified>2026-02-09T15:36:01.038</Modified>
+      <Modified>2026-02-09T18:04:36.419</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\artzm\source\repos\JustificantesUPP\JustificantesUPP\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\artzm\.nuget\packages\communitytoolkit.winui.ui.controls.datagrid\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.DataGrid.pri">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.DataGrid.pri</PackagePath>
+      <Modified>2021-11-18T21:49:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\artzm\source\repos\JustificanteUPP\JustificantesUPP\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2025-12-10T20:46:05.426</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\artzm\source\repos\JustificantesUPP\JustificantesUPP\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\artzm\source\repos\JustificanteUPP\JustificantesUPP\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <Modified>2025-12-10T20:46:05.426</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\artzm\source\repos\JustificantesUPP\JustificantesUPP\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\artzm\source\repos\JustificanteUPP\JustificantesUPP\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <Modified>2025-12-10T20:46:05.431</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\artzm\source\repos\JustificantesUPP\JustificantesUPP\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\artzm\source\repos\JustificanteUPP\JustificantesUPP\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <Modified>2025-12-10T20:46:05.433</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\artzm\source\repos\JustificantesUPP\JustificantesUPP\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\artzm\source\repos\JustificanteUPP\JustificantesUPP\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <Modified>2025-12-10T20:46:05.435</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\artzm\source\repos\JustificantesUPP\JustificantesUPP\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\artzm\source\repos\JustificanteUPP\JustificantesUPP\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <Modified>2025-12-10T20:46:05.435</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\artzm\source\repos\JustificantesUPP\JustificantesUPP\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\artzm\source\repos\JustificanteUPP\JustificantesUPP\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <Modified>2025-12-10T20:46:05.435</Modified>
     </AppxPackagedFile>
@@ -1085,9 +1093,9 @@
       <PackagePath>Microsoft.Web.WebView2.Core.winmd</PackagePath>
       <Modified>2025-03-30T09:03:56.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\artzm\source\repos\JustificantesUPP\JustificantesUPP\bin\x64\Debug\net10.0-windows10.0.19041.0\win-x64\resources.pri">
+    <AppxPackagedFile Include="C:\Users\artzm\source\repos\JustificanteUPP\JustificantesUPP\bin\x64\Debug\net10.0-windows10.0.19041.0\win-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2026-02-09T15:37:01.924</Modified>
+      <Modified>2026-02-09T20:29:30.329</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

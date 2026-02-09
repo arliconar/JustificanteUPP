@@ -1,1 +1,1 @@
-C:\Users\artzm\source\repos\JustificantesUPP\JustificantesUPP\JustificantesUPP.csproj;x64
+C:\Users\artzm\source\repos\JustificanteUPP\JustificantesUPP\JustificantesUPP.csproj;x64

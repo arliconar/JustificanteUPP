@@ -15,6 +15,7 @@ namespace JustificantesUPP
         // Cambiado a public, async Task y nombre en PascalCase
         public MailClass()
         {
+
         }
         public async Task EnviarAsync()
         {

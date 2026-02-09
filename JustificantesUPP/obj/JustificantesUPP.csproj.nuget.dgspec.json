@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\artzm\\source\\repos\\JustificantesUPP\\JustificantesUPP\\JustificantesUPP.csproj": {}
+    "C:\\Users\\artzm\\source\\repos\\JustificanteUPP\\JustificantesUPP\\JustificantesUPP.csproj": {}
   },
   "projects": {
-    "C:\\Users\\artzm\\source\\repos\\JustificantesUPP\\JustificantesUPP\\JustificantesUPP.csproj": {
+    "C:\\Users\\artzm\\source\\repos\\JustificanteUPP\\JustificantesUPP\\JustificantesUPP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\artzm\\source\\repos\\JustificantesUPP\\JustificantesUPP\\JustificantesUPP.csproj",
+        "projectUniqueName": "C:\\Users\\artzm\\source\\repos\\JustificanteUPP\\JustificantesUPP\\JustificantesUPP.csproj",
         "projectName": "JustificantesUPP",
-        "projectPath": "C:\\Users\\artzm\\source\\repos\\JustificantesUPP\\JustificantesUPP\\JustificantesUPP.csproj",
+        "projectPath": "C:\\Users\\artzm\\source\\repos\\JustificanteUPP\\JustificantesUPP\\JustificantesUPP.csproj",
         "packagesPath": "C:\\Users\\artzm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\artzm\\source\\repos\\JustificantesUPP\\JustificantesUPP\\obj\\",
+        "outputPath": "C:\\Users\\artzm\\source\\repos\\JustificanteUPP\\JustificantesUPP\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -51,6 +51,10 @@
         "net10.0-windows10.0.19041": {
           "targetAlias": "net10.0-windows10.0.19041.0",
           "dependencies": {
+            "CommunityToolkit.WinUI.UI.Controls.DataGrid": {
+              "target": "Package",
+              "version": "[7.1.2, )"
+            },
             "Google.Apis.Gmail.v1": {
               "target": "Package",
               "version": "[1.73.0.4029, )"
@@ -70,6 +74,10 @@
             "Microsoft.WindowsAppSDK": {
               "target": "Package",
               "version": "[1.8.260101001, )"
+            },
+            "SQLitePCLRaw.bundle_e_sqlite3": {
+              "target": "Package",
+              "version": "[3.0.2, )"
             }
           },
           "imports": [

@@ -35,6 +35,7 @@ namespace JustificantesUPP
         public App()
         {
             InitializeComponent();
+            SQLitePCL.Batteries.Init();
         }
 
         /// <summary>
