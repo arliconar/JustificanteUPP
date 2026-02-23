@@ -1,6 +1,8 @@
 using Google.Apis.Gmail.v1;
+using Google.Apis.Gmail.v1.Data;
 using JustificantesUPP.Modelos;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.UI.Text;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -8,11 +10,12 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using MimeKit;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using Microsoft.UI.Text;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -32,6 +35,7 @@ namespace JustificantesUPP
         private List<Alumno> listaOriginalAlumnos = new List<Alumno>();
         private List<Profesor> listaOriginalProfesores = new List<Profesor>();
         Justificante justi = new Justificante();
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -91,8 +95,8 @@ namespace JustificantesUPP
                 p.Nombre.ToLower().Contains(texto) ||
                 p.Correo.ToLower().Contains(texto)
             ).ToList();
-
             ProfesoresGrid.ItemsSource = filtrados;
+       
         }
         private async void InicializarBaseDeDatos()
         {
@@ -138,13 +142,62 @@ namespace JustificantesUPP
         {
             // 1. Recolectar datos y seleccionados
             PrepararJustificante();
+            MimeMessage mensaje = justi.CrearCorreo();
+            MailClass mail = new MailClass();
+            await mail.EnviarAsync(mensaje);
+
+
+
 
         }
 
         private void PrepararJustificante()
         {
-           
+            justi.Alumnos?.Clear();
+            justi.Profesores?.Clear();
+
+            // Asegurarse de que las listas en el objeto 'justi' estén inicializadas
+            if (justi.Alumnos == null) justi.Alumnos = new List<Alumno>();
+            if (justi.Profesores == null) justi.Profesores = new List<Profesor>();
+
+            // 2. Filtrar y agregar los Alumnos seleccionados
+            var seleccionadosAlumnos = listaOriginalAlumnos.Where(a => a.IsSelected).ToList();
+            justi.Alumnos.AddRange(seleccionadosAlumnos);
+
+            // 3. Filtrar y agregar los Profesores seleccionados
+            var seleccionadosProfesores = listaOriginalProfesores.Where(p => p.IsSelected).ToList();
+            justi.Profesores.AddRange(seleccionadosProfesores);
+
+            // 4. Capturar el texto del RichEditBox (ya que no soporta binding directo)
+            TxtMotivo.Document.GetText(Microsoft.UI.Text.TextGetOptions.UseObjectText, out string contenido);
+            justi.Motivo = contenido;
             // El motivo ya está enlazado por data binding, así que no es necesario asignarlo aquí
+            DateTimeOffset? selectedDateInicio = DpFechaInicio.Date;
+
+            if (selectedDateInicio.HasValue)
+            {
+                // 2. Convertimos el DateTimeOffset a DateOnly
+                // Usamos .Date para obtener el DateTime y luego DateOnly.FromDateTime
+                justi.FechaInicio = DateOnly.FromDateTime(selectedDateInicio.Value.DateTime);
+
+       
+            }
+            DateTimeOffset? selectedDateFinal = DpFechaFinal.Date;
+
+            if (selectedDateFinal.HasValue)
+            {
+                // 2. Convertimos el DateTimeOffset a DateOnly
+                // Usamos .Date para obtener el DateTime y luego DateOnly.FromDateTime
+                justi.FechaFinal = DateOnly.FromDateTime(selectedDateFinal.Value.DateTime);
+
+            }
+            else
+            {
+                justi.FechaFinal = justi.FechaInicio;
+            }
+
+
+
         }
         private void BtnGenerarWord_Click(object sender, RoutedEventArgs e)
         {
