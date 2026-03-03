@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JustificantesUPP")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+62747e68e36f23d142a457ad18091619b87fc5cc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3fc89484f8d7528b9d2bd73abb2db3b7deaacced")]
 [assembly: System.Reflection.AssemblyProductAttribute("JustificantesUPP")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JustificantesUPP")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

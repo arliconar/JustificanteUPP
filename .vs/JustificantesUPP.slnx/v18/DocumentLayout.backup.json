@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\artzm\\source\\repos\\JustificanteUPP\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{681EAEF0-1566-CFBD-E03C-48B5CCBB1943}|JustificantesUPP\\JustificantesUPP.csproj|c:\\users\\artzm\\source\\repos\\justificanteupp\\justificantesupp\\modelos\\justificante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{681EAEF0-1566-CFBD-E03C-48B5CCBB1943}|JustificantesUPP\\JustificantesUPP.csproj|solutionrelative:justificantesupp\\modelos\\justificante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{681EAEF0-1566-CFBD-E03C-48B5CCBB1943}|JustificantesUPP\\JustificantesUPP.csproj|c:\\users\\artzm\\source\\repos\\justificanteupp\\justificantesupp\\mailclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{681EAEF0-1566-CFBD-E03C-48B5CCBB1943}|JustificantesUPP\\JustificantesUPP.csproj|solutionrelative:justificantesupp\\mailclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{681EAEF0-1566-CFBD-E03C-48B5CCBB1943}|JustificantesUPP\\JustificantesUPP.csproj|c:\\users\\artzm\\source\\repos\\justificanteupp\\justificantesupp\\modelos\\justificante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{681EAEF0-1566-CFBD-E03C-48B5CCBB1943}|JustificantesUPP\\JustificantesUPP.csproj|solutionrelative:justificantesupp\\modelos\\justificante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{681EAEF0-1566-CFBD-E03C-48B5CCBB1943}|JustificantesUPP\\JustificantesUPP.csproj|c:\\users\\artzm\\source\\repos\\justificanteupp\\justificantesupp\\modelos\\owner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -37,23 +37,6 @@
           "SelectedChildIndex": 4,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "App.g.i.cs",
-              "DocumentMoniker": "C:\\Users\\artzm\\source\\repos\\JustificanteUPP\\JustificantesUPP\\obj\\x64\\Debug\\net10.0-windows10.0.19041.0\\win-x64\\App.g.i.cs",
-              "RelativeDocumentMoniker": "JustificantesUPP\\obj\\x64\\Debug\\net10.0-windows10.0.19041.0\\win-x64\\App.g.i.cs",
-              "ToolTip": "C:\\Users\\artzm\\source\\repos\\JustificanteUPP\\JustificantesUPP\\obj\\x64\\Debug\\net10.0-windows10.0.19041.0\\win-x64\\App.g.i.cs",
-              "RelativeToolTip": "JustificantesUPP\\obj\\x64\\Debug\\net10.0-windows10.0.19041.0\\win-x64\\App.g.i.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAEwEQAAABEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-23T14:15:43.21Z",
-              "EditorCaption": ""
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "MainWindow.xaml.cs",
@@ -63,8 +46,7 @@
               "RelativeToolTip": "JustificantesUPP\\MainWindow.xaml.cs",
               "ViewState": "AgIAAJAAAAAAAAAAAAAgwLkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-20T20:12:15.5Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-20T20:12:15.5Z"
             },
             {
               "$type": "Document",
@@ -76,31 +58,41 @@
               "RelativeToolTip": "JustificantesUPP\\Modelos\\Owner.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-20T20:12:07.797Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-20T20:12:07.797Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Justificante.cs",
               "DocumentMoniker": "C:\\Users\\artzm\\source\\repos\\JustificanteUPP\\JustificantesUPP\\Modelos\\Justificante.cs",
               "RelativeDocumentMoniker": "JustificantesUPP\\Modelos\\Justificante.cs",
               "ToolTip": "C:\\Users\\artzm\\source\\repos\\JustificanteUPP\\JustificantesUPP\\Modelos\\Justificante.cs",
               "RelativeToolTip": "JustificantesUPP\\Modelos\\Justificante.cs",
-              "ViewState": "AgIAAG0AAAAAAAAAAAAwwHsAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHsAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-09T18:53:45.004Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-09T18:53:45.004Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
+              "Title": "App.g.i.cs",
+              "DocumentMoniker": "C:\\Users\\artzm\\source\\repos\\JustificanteUPP\\JustificantesUPP\\obj\\x64\\Debug\\net10.0-windows10.0.19041.0\\win-x64\\App.g.i.cs",
+              "RelativeDocumentMoniker": "JustificantesUPP\\obj\\x64\\Debug\\net10.0-windows10.0.19041.0\\win-x64\\App.g.i.cs",
+              "ToolTip": "C:\\Users\\artzm\\source\\repos\\JustificanteUPP\\JustificantesUPP\\obj\\x64\\Debug\\net10.0-windows10.0.19041.0\\win-x64\\App.g.i.cs",
+              "RelativeToolTip": "JustificantesUPP\\obj\\x64\\Debug\\net10.0-windows10.0.19041.0\\win-x64\\App.g.i.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAEwEQAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-23T14:15:43.21Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "mailclass.cs",
               "DocumentMoniker": "C:\\Users\\artzm\\source\\repos\\JustificanteUPP\\JustificantesUPP\\mailclass.cs",
               "RelativeDocumentMoniker": "JustificantesUPP\\mailclass.cs",
               "ToolTip": "C:\\Users\\artzm\\source\\repos\\JustificanteUPP\\JustificantesUPP\\mailclass.cs",
               "RelativeToolTip": "JustificantesUPP\\mailclass.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAArwDEAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAArwCEAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-16T19:35:11.961Z",
               "EditorCaption": ""
@@ -115,8 +107,7 @@
               "RelativeToolTip": "JustificantesUPP\\MainWindow.xaml",
               "ViewState": "AgIAAFoAAAAAAAAAAAAAAGYAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-02-20T20:12:13.297Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-20T20:12:13.297Z"
             }
           ]
         }
