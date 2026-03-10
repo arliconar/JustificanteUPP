@@ -20,17 +20,32 @@ namespace JustificantesUPP
         public async Task EnviarAsync(MimeMessage mensaje)
         {
             UserCredential credential;
-            string credPath = "C:\\Justificantes\\token.json"; // Donde se guardará el permiso aprobado
+            string credPath = "C:\\Justificantes\\token.json";
+            string credentialsFile = "C:\\Justificantes\\credentials.json";
 
-            using (var stream = new FileStream("C:\\Justificantes\\credentials.json", FileMode.Open, FileAccess.Read))
+            try
             {
-                // El FileDataStore evita que pida loguearse en el navegador cada vez que corres el programa
-                credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
-                    GoogleClientSecrets.FromStream(stream).Secrets,
-                    new[] { GmailService.Scope.GmailSend },
-                    "user",
-                    CancellationToken.None,
-                    new FileDataStore(credPath, true));
+                credential = await ObtenerCredenciales(credentialsFile, credPath);
+
+                // Verificamos si el token ha caducado y tratamos de refrescarlo manualmente
+                // por si la librería no lo hizo automáticamente antes de enviar.
+                if (credential.Token.IsStale)
+                {
+                    if (!await credential.RefreshTokenAsync(CancellationToken.None))
+                    {
+                        // Si no se pudo refrescar, lanzamos excepción para forzar re-autorización
+                        throw new Exception("No se pudo refrescar el token.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Si hay error de autenticación, borramos la carpeta del token y reintentamos una vez más
+                if (Directory.Exists(credPath))
+                {
+                    Directory.Delete(credPath, true);
+                }
+                credential = await ObtenerCredenciales(credentialsFile, credPath);
             }
 
             var service = new GmailService(new BaseClientService.Initializer()
@@ -38,6 +53,7 @@ namespace JustificantesUPP
                 HttpClientInitializer = credential,
                 ApplicationName = "Justificantes UPP",
             });
+
             string base64RawMessage;
             using (var stream = new MemoryStream())
             {
@@ -47,14 +63,23 @@ namespace JustificantesUPP
                     .Replace('/', '_')
                     .Replace("=", "");
             }
-            var gmailMessage = new Message
-            {
-                Raw = base64RawMessage
-            };
 
-          
-
+            var gmailMessage = new Message { Raw = base64RawMessage };
             await service.Users.Messages.Send(gmailMessage, "me").ExecuteAsync();
+        }
+
+        // Método auxiliar para centralizar la petición de tokens
+        private async Task<UserCredential> ObtenerCredenciales(string clientSecretsPath, string tokenPath)
+        {
+            using (var stream = new FileStream(clientSecretsPath, FileMode.Open, FileAccess.Read))
+            {
+                return await GoogleWebAuthorizationBroker.AuthorizeAsync(
+                    GoogleClientSecrets.FromStream(stream).Secrets,
+                    new[] { GmailService.Scope.GmailSend },
+                    "user",
+                    CancellationToken.None,
+                    new FileDataStore(tokenPath, true));
+            }
         }
     }
 }
