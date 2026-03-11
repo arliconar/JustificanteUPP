@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\artzm\\source\\repos\\JustificanteUPP\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{681EAEF0-1566-CFBD-E03C-48B5CCBB1943}|JustificantesUPP\\JustificantesUPP.csproj|c:\\users\\artzm\\source\\repos\\justificanteupp\\justificantesupp\\mailclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{681EAEF0-1566-CFBD-E03C-48B5CCBB1943}|JustificantesUPP\\JustificantesUPP.csproj|solutionrelative:justificantesupp\\mailclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{681EAEF0-1566-CFBD-E03C-48B5CCBB1943}|JustificantesUPP\\JustificantesUPP.csproj|c:\\users\\artzm\\source\\repos\\justificanteupp\\justificantesupp\\modelos\\justificante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{681EAEF0-1566-CFBD-E03C-48B5CCBB1943}|JustificantesUPP\\JustificantesUPP.csproj|solutionrelative:justificantesupp\\modelos\\justificante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{681EAEF0-1566-CFBD-E03C-48B5CCBB1943}|JustificantesUPP\\JustificantesUPP.csproj|c:\\users\\artzm\\source\\repos\\justificanteupp\\justificantesupp\\modelos\\alumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{681EAEF0-1566-CFBD-E03C-48B5CCBB1943}|JustificantesUPP\\JustificantesUPP.csproj|solutionrelative:justificantesupp\\modelos\\alumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{681EAEF0-1566-CFBD-E03C-48B5CCBB1943}|JustificantesUPP\\JustificantesUPP.csproj|c:\\users\\artzm\\source\\repos\\justificanteupp\\justificantesupp\\mailclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{681EAEF0-1566-CFBD-E03C-48B5CCBB1943}|JustificantesUPP\\JustificantesUPP.csproj|solutionrelative:justificantesupp\\mailclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{681EAEF0-1566-CFBD-E03C-48B5CCBB1943}|JustificantesUPP\\JustificantesUPP.csproj|c:\\users\\artzm\\source\\repos\\justificanteupp\\justificantesupp\\modelos\\owner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,32 +39,44 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Alumno.cs",
+              "DocumentMoniker": "C:\\Users\\artzm\\source\\repos\\JustificanteUPP\\JustificantesUPP\\Modelos\\Alumno.cs",
+              "RelativeDocumentMoniker": "JustificantesUPP\\Modelos\\Alumno.cs",
+              "ToolTip": "C:\\Users\\artzm\\source\\repos\\JustificanteUPP\\JustificantesUPP\\Modelos\\Alumno.cs",
+              "RelativeToolTip": "JustificantesUPP\\Modelos\\Alumno.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T17:02:25.562Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Justificante.cs",
               "DocumentMoniker": "C:\\Users\\artzm\\source\\repos\\JustificanteUPP\\JustificantesUPP\\Modelos\\Justificante.cs",
               "RelativeDocumentMoniker": "JustificantesUPP\\Modelos\\Justificante.cs",
               "ToolTip": "C:\\Users\\artzm\\source\\repos\\JustificanteUPP\\JustificantesUPP\\Modelos\\Justificante.cs",
               "RelativeToolTip": "JustificantesUPP\\Modelos\\Justificante.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAQwHsAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAIQAAAAAAAAAAAAAwI8AAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-09T18:53:45.004Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "mailclass.cs",
               "DocumentMoniker": "C:\\Users\\artzm\\source\\repos\\JustificanteUPP\\JustificantesUPP\\mailclass.cs",
               "RelativeDocumentMoniker": "JustificantesUPP\\mailclass.cs",
               "ToolTip": "C:\\Users\\artzm\\source\\repos\\JustificanteUPP\\JustificantesUPP\\mailclass.cs",
               "RelativeToolTip": "JustificantesUPP\\mailclass.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAuwCgAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAswDsAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-16T19:35:11.961Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-16T19:35:11.961Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Owner.cs",
               "DocumentMoniker": "C:\\Users\\artzm\\source\\repos\\JustificanteUPP\\JustificantesUPP\\Modelos\\Owner.cs",
               "RelativeDocumentMoniker": "JustificantesUPP\\Modelos\\Owner.cs",
@@ -72,25 +88,25 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\artzm\\source\\repos\\JustificanteUPP\\JustificantesUPP\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "JustificantesUPP\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\artzm\\source\\repos\\JustificanteUPP\\JustificantesUPP\\MainWindow.xaml.cs",
               "RelativeToolTip": "JustificantesUPP\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAJAAAAAAAAAAAAAgwLkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAKQAAAAAAAAAAAAkwLkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-20T20:12:15.5Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\artzm\\source\\repos\\JustificanteUPP\\JustificantesUPP\\MainWindow.xaml",
               "RelativeDocumentMoniker": "JustificantesUPP\\MainWindow.xaml",
               "ToolTip": "C:\\Users\\artzm\\source\\repos\\JustificanteUPP\\JustificantesUPP\\MainWindow.xaml",
               "RelativeToolTip": "JustificantesUPP\\MainWindow.xaml",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAAAGYAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAFcAAAAAAAAAAIBJwGYAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2026-02-20T20:12:13.297Z"
             }
