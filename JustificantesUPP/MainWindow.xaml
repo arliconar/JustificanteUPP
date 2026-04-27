@@ -10,6 +10,12 @@
         <TabView x:Name="MainTabView" 
                  IsAddTabButtonVisible="False" 
                  CanReorderTabs="True">
+                 
+            <TabView.TabStripFooter>
+                <CommandBar Background="Transparent" DefaultLabelPosition="Right">
+                    <AppBarButton Icon="ContactInfo" Label="Editar tutor" Click="BtnEditarOwner_Click"/>
+                </CommandBar>
+            </TabView.TabStripFooter>
 
             <TabViewItem Header="Alumnos" IsClosable="False">
                 <TabViewItem.IconSource>
@@ -19,15 +25,36 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
+                        </Grid.RowDefinitions>
 
-                    <AutoSuggestBox x:Name="TxtBusquedaAlumnos" 
+                                        <Grid Grid.Row="0" Margin="0,0,0,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <AutoSuggestBox x:Name="TxtBusquedaAlumnos" 
                             PlaceholderText="Buscar alumno por nombre o NC..." 
                             QueryIcon="Find" 
                             TextChanged="TxtBusquedaAlumnos_TextChanged" 
-                            Margin="0,0,0,10"/>
+                            Margin="0,0,10,0"/>
 
-                    <controls:DataGrid x:Name="AlumnosGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="False" GridLinesVisibility="All">
+                                                <CommandBar Grid.Column="1" DefaultLabelPosition="Right" Background="Transparent">
+                            <AppBarButton Icon="SelectAll" Label="Seleccionar Todos" Click="BtnSeleccionarTodosAlumnos_Click"/>
+                            <AppBarButton Icon="ClearSelection" Label="Deseleccionar" Click="BtnDeseleccionarTodosAlumnos_Click"/>
+                            <AppBarButton Icon="Upload" Label="Importar CSV" Click="BtnImportarAlumnos_Click"/>
+                            <AppBarButton Icon="Download" Label="Exportar CSV" Click="BtnExportarAlumnos_Click"/>
+                        </CommandBar>
+                    </Grid>
+
+                                        <controls:DataGrid x:Name="AlumnosGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="False" GridLinesVisibility="All">
+                        <controls:DataGrid.ContextFlyout>
+                            <MenuFlyout>
+                                <MenuFlyoutItem Text="Agregar Nuevo" Click="MenuAgregarAlumno_Click" Icon="Add"/>
+                                <MenuFlyoutItem Text="Editar" Click="MenuEditarAlumno_Click" Icon="Edit"/>
+                                <MenuFlyoutItem Text="Eliminar" Click="MenuEliminarAlumno_Click" Icon="Delete"/>
+                            </MenuFlyout>
+                        </controls:DataGrid.ContextFlyout>
                         <controls:DataGrid.Columns>
                             <controls:DataGridTemplateColumn Header="Seleccionar">
                                 <controls:DataGridTemplateColumn.CellTemplate>
@@ -39,7 +66,7 @@
                             <controls:DataGridTextColumn Header="NC" Binding="{Binding Nc}" IsReadOnly="True"/>
                             <controls:DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" IsReadOnly="True"/>
                             <controls:DataGridTextColumn Header="Correo" Binding="{Binding Correo}" IsReadOnly="True"/>
-                            <controls:DataGridTextColumn Header="Género" Binding="{Binding Genero}" IsReadOnly="True"/>
+                            <controls:DataGridTextColumn Header="G&#233;nero" Binding="{Binding Genero}" IsReadOnly="True"/>
                         </controls:DataGrid.Columns>
                     </controls:DataGrid>
                 </Grid>
@@ -52,15 +79,36 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
+                        </Grid.RowDefinitions>
 
-                    <AutoSuggestBox x:Name="TxtBusquedaProfesores" 
+                                        <Grid Grid.Row="0" Margin="0,0,0,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <AutoSuggestBox x:Name="TxtBusquedaProfesores" 
                             PlaceholderText="Buscar profesor por nombre o correo..." 
                             QueryIcon="Find" 
                             TextChanged="TxtBusquedaProfesores_TextChanged" 
-                            Margin="0,0,0,10"/>
+                            Margin="0,0,10,0"/>
 
-                    <controls:DataGrid x:Name="ProfesoresGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="False" GridLinesVisibility="All">
+                                                <CommandBar Grid.Column="1" DefaultLabelPosition="Right" Background="Transparent">
+                            <AppBarButton Icon="SelectAll" Label="Seleccionar Todos" Click="BtnSeleccionarTodosProfesores_Click"/>
+                            <AppBarButton Icon="ClearSelection" Label="Deseleccionar" Click="BtnDeseleccionarTodosProfesores_Click"/>
+                            <AppBarButton Icon="Upload" Label="Importar CSV" Click="BtnImportarProfesores_Click"/>
+                            <AppBarButton Icon="Download" Label="Exportar CSV" Click="BtnExportarProfesores_Click"/>
+                        </CommandBar>
+                    </Grid>
+
+                                        <controls:DataGrid x:Name="ProfesoresGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="False" GridLinesVisibility="All">
+                        <controls:DataGrid.ContextFlyout>
+                            <MenuFlyout>
+                                <MenuFlyoutItem Text="Agregar Nuevo" Click="MenuAgregarProfesor_Click" Icon="Add"/>
+                                <MenuFlyoutItem Text="Editar" Click="MenuEditarProfesor_Click" Icon="Edit"/>
+                                <MenuFlyoutItem Text="Eliminar" Click="MenuEliminarProfesor_Click" Icon="Delete"/>
+                            </MenuFlyout>
+                        </controls:DataGrid.ContextFlyout>
                         <controls:DataGrid.Columns>
                             <controls:DataGridTemplateColumn Header="Seleccionar">
                                 <controls:DataGridTemplateColumn.CellTemplate>
