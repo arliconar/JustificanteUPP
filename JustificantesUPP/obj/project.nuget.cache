@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8EQnvoQAQLU=",
+  "dgSpecHash": "sMzNnS6wxLU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\artzm\\OneDrive\\Documentos\\GitHub\\JustificanteUPP\\JustificantesUPP\\JustificantesUPP.csproj",
+  "projectFilePath": "C:\\Users\\artzm\\source\\repos\\JustificanteUPP\\JustificantesUPP\\JustificantesUPP.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\artzm\\.nuget\\packages\\bouncycastle.cryptography\\2.6.2\\bouncycastle.cryptography.2.6.2.nupkg.sha512",
     "C:\\Users\\artzm\\.nuget\\packages\\communitytoolkit.winui.ui.controls.datagrid\\7.1.2\\communitytoolkit.winui.ui.controls.datagrid.7.1.2.nupkg.sha512",

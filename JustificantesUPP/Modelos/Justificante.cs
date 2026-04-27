@@ -1,4 +1,4 @@
-using Microsoft.VisualBasic;
+﻿using Microsoft.VisualBasic;
 using MimeKit;
 using System;
 using System.Collections.Generic;
@@ -20,7 +20,12 @@ namespace JustificantesUPP.Modelos
 
         public List<Alumno> Alumnos { get; set; }
         public List<Profesor> Profesores { get; set; }
-        public Owner OwnerData { get; set; } = Owner.Load();
+        Owner owner = new Owner
+        {
+            Nombre = "Dr. Angel Ricardo Licona Rodríguez",
+            Correo = "arliconar@upp.edu.mx",
+            Genero = Genero.Masculino,
+        };
         public DateOnly FechaInicio { get; set; }
 
         public DateOnly FechaFinal { get; set; }
@@ -100,22 +105,44 @@ namespace JustificantesUPP.Modelos
             }
             else
             {
-                return "periodo comprendido entre " + FechaInicio.ToString("dd/MM/yyyy") + " y " + FechaFinal.ToString("dd/MM/yyyy");
+                return "periodo comprendido entre " + FechaInicio.ToString("dd/MM/yyyy") + " al " + FechaFinal.ToString("dd/MM/yyyy");
             }
+        }
+
+        public string getAsunto()
+        {
+            string asunto = "Justificante de";
+                if (Alumnos.Count == 1)
+                {
+                    asunto += getGenre(Alumnos[0]) + " " + Alumnos[0].Nombre;
+                }
+                else
+                {
+                    asunto += " alumnos";
+            }
+                if (FechaInicio != FechaFinal)
+                {
+                    asunto += " del periodo " + FechaInicio.ToString("dd/MM/yyyy") + " al " + FechaFinal.ToString("dd/MM/yyyy");
+                }
+                else
+                {
+                    asunto += " del día " + FechaInicio.ToString("dd/MM/yyyy");
+                }
+            return asunto;
         }
         public string getMotivo()
         {
             return $"{getProfesores()}, \n\n" +
-              "Por medio de la presente, me permito hacer de su conocimiento la justificación de inasistencia de" + getAlumnos() + " correspondiente al periodo comprendido del " + getperido() + ".\n\n"+
+              "Por medio de la presente, me permito hacer de su conocimiento la justificación de inasistencia de" + getAlumnos() + " correspondiente del " + getperido() + ".\n\n"+
               "Dicha ausencia se fundamenta en lo siguiente: " + Motivo + ".\n\n"+
               "Debido a la naturaleza de la situación, se solicita el apoyo de las instancias correspondientes para otorgar las facilidades académicas necesarias. Agradezco de antemano su atención y comprensión a la presente, quedando a su entera disposición para cualquier aclaración o información adicional.\n\n" +
-              "Atentamente\n\n" + OwnerData.Nombre+"\n\n" + OwnerData.Correo;
+              "Atentamente\n\n" + owner.Nombre+"\n\n" + owner.Correo;
         }
         public MimeKit.MimeMessage CrearCorreo()
         {
             var mensaje = new MimeKit.MimeMessage();
-            mensaje.Subject = "Justificante de" + getAlumnos();
-            mensaje.From.Add(new MailboxAddress(OwnerData.Nombre, OwnerData.Correo));
+            mensaje.Subject = getAsunto();
+            mensaje.From.Add(new MailboxAddress(owner.Nombre, owner.Correo));
             mensaje.Body = new TextPart("plain")
             {
                 Text = getMotivo()
