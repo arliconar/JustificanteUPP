@@ -42,6 +42,16 @@ namespace JustificantesUPP
             }
             CargarDatos();
             RootGrid.DataContext = justi;
+            RootGrid.Loaded += RootGrid_Loaded;
+        }
+
+        private async void RootGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "JustificantesUPP_Owner.json");
+            if (!System.IO.File.Exists(path))
+            {
+                await MostrarDialogoOwnerAsync(true);
+            }
         }
 
         private void BoldClick(object sender, RoutedEventArgs e)
@@ -651,25 +661,30 @@ namespace JustificantesUPP
 
         private async void BtnEditarOwner_Click(object sender, RoutedEventArgs e)
         {
+            await MostrarDialogoOwnerAsync(false);
+        }
+
+        private async System.Threading.Tasks.Task MostrarDialogoOwnerAsync(bool isNew)
+        {
             var owner = justi.OwnerData;
 
             var dialog = new ContentDialog
             {
-                Title = "Editar Información del Remitente",
+                Title = isNew ? "Configuración Inicial del Remitente" : "Editar Información del Remitente",
                 PrimaryButtonText = "Guardar",
-                CloseButtonText = "Cancelar",
+                CloseButtonText = isNew ? "" : "Cancelar",
                 XamlRoot = this.Content.XamlRoot
             };
 
             var panel = new StackPanel { Spacing = 10, MinWidth = 300 };
-            var txtNombre = new TextBox { Header = "Nombre", Text = owner.Nombre };
-            var txtCorreo = new TextBox { Header = "Correo", Text = owner.Correo };
+            var txtNombre = new TextBox { Header = "Nombre", Text = isNew ? "" : owner.Nombre };
+            var txtCorreo = new TextBox { Header = "Correo", Text = isNew ? "" : owner.Correo };
             var cmbGenero = new ComboBox { Header = "Género" };
             cmbGenero.Items.Add("Femenino");
             cmbGenero.Items.Add("Masculino");
             cmbGenero.Items.Add("Otro");
             cmbGenero.SelectedIndex = (int)owner.Genero;
-            var txtFirma = new TextBox { Header = "Ruta de la Firma", Text = owner.firmapath };
+            var txtFirma = new TextBox { Header = "Ruta de la Firma", Text = isNew ? "" : owner.firmapath };
 
             panel.Children.Add(txtNombre);
             panel.Children.Add(txtCorreo);
