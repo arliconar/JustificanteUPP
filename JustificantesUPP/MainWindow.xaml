@@ -52,6 +52,7 @@
                             <MenuFlyout>
                                 <MenuFlyoutItem Text="Agregar Nuevo" Click="MenuAgregarAlumno_Click" Icon="Add"/>
                                 <MenuFlyoutItem Text="Editar" Click="MenuEditarAlumno_Click" Icon="Edit"/>
+                                <MenuFlyoutItem Text="Editar Grupo (Seleccionados)" Click="MenuEditarGrupoAlumnos_Click" Icon="Edit"/>
                                 <MenuFlyoutItem Text="Eliminar" Click="MenuEliminarAlumno_Click" Icon="Delete"/>
                             </MenuFlyout>
                         </controls:DataGrid.ContextFlyout>
@@ -66,6 +67,7 @@
                             <controls:DataGridTextColumn Header="NC" Binding="{Binding Nc}" IsReadOnly="True"/>
                             <controls:DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" IsReadOnly="True"/>
                             <controls:DataGridTextColumn Header="Correo" Binding="{Binding Correo}" IsReadOnly="True"/>
+                            <controls:DataGridTextColumn Header="Grupo" Binding="{Binding Grupo}" IsReadOnly="True"/>
                             <controls:DataGridTextColumn Header="G&#233;nero" Binding="{Binding Genero}" IsReadOnly="True"/>
                         </controls:DataGrid.Columns>
                     </controls:DataGrid>

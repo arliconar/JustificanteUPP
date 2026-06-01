@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -18,6 +18,7 @@ namespace JustificantesUPP.Modelos
         public string Nc { get; set; }
         public string Nombre { get; set; }
         public string Correo { get; set; }
+        public string Grupo { get; set; }
        
         public Genero Genero { get; set; }
 

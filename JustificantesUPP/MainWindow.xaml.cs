@@ -192,6 +192,7 @@ namespace JustificantesUPP
             var txtNc = new TextBox { Header = "NC" };
             var txtNombre = new TextBox { Header = "Nombre" };
             var txtCorreo = new TextBox { Header = "Correo" };
+            var txtGrupo = new TextBox { Header = "Grupo" };
             var cmbGenero = new ComboBox { Header = "Género" };
             cmbGenero.Items.Add("Femenino");
             cmbGenero.Items.Add("Masculino");
@@ -201,6 +202,7 @@ namespace JustificantesUPP
             panel.Children.Add(txtNc);
             panel.Children.Add(txtNombre);
             panel.Children.Add(txtCorreo);
+            panel.Children.Add(txtGrupo);
             panel.Children.Add(cmbGenero);
             dialog.Content = panel;
 
@@ -215,6 +217,7 @@ namespace JustificantesUPP
                     Nc = txtNc.Text,
                     Nombre = txtNombre.Text ?? "",
                     Correo = txtCorreo.Text ?? "",
+                    Grupo = txtGrupo.Text ?? "",
                     Genero = (Genero)cmbGenero.SelectedIndex
                 };
                 db.Alumnos.Add(nuevoAlumno);
@@ -239,6 +242,7 @@ namespace JustificantesUPP
             var txtNc = new TextBox { Header = "NC", Text = alumnoSeleccionado.Nc, IsEnabled = false };
             var txtNombre = new TextBox { Header = "Nombre", Text = alumnoSeleccionado.Nombre };
             var txtCorreo = new TextBox { Header = "Correo", Text = alumnoSeleccionado.Correo };
+            var txtGrupo = new TextBox { Header = "Grupo", Text = alumnoSeleccionado.Grupo };
             var cmbGenero = new ComboBox { Header = "Género" };
             cmbGenero.Items.Add("Femenino");
             cmbGenero.Items.Add("Masculino");
@@ -248,6 +252,7 @@ namespace JustificantesUPP
             panel.Children.Add(txtNc);
             panel.Children.Add(txtNombre);
             panel.Children.Add(txtCorreo);
+            panel.Children.Add(txtGrupo);
             panel.Children.Add(cmbGenero);
             dialog.Content = panel;
 
@@ -260,10 +265,59 @@ namespace JustificantesUPP
                 {
                     alumno.Nombre = txtNombre.Text ?? "";
                     alumno.Correo = txtCorreo.Text ?? "";
+                    alumno.Grupo = txtGrupo.Text ?? "";
                     alumno.Genero = (Genero)cmbGenero.SelectedIndex;
                     await db.SaveChangesAsync();
                     CargarDatos();
                 }
+            }
+        }
+
+        private async void MenuEditarGrupoAlumnos_Click(object sender, RoutedEventArgs e)
+        {
+            var alumnos = AlumnosGrid.ItemsSource as IEnumerable<Alumno>;
+            var seleccionados = alumnos?.Where(a => a.IsSelected).ToList() ?? new List<Alumno>();
+
+            if (seleccionados.Count == 0)
+            {
+                var dialog = new ContentDialog
+                {
+                    Title = "Aviso",
+                    Content = "Debes seleccionar al menos un alumno para editar su grupo.",
+                    CloseButtonText = "Aceptar",
+                    XamlRoot = this.Content.XamlRoot
+                };
+                await dialog.ShowAsync();
+                return;
+            }
+
+            var editDialog = new ContentDialog
+            {
+                Title = "Editar Grupo Masivo",
+                PrimaryButtonText = "Guardar",
+                CloseButtonText = "Cancelar",
+                XamlRoot = this.Content.XamlRoot
+            };
+
+            var panel = new StackPanel { Spacing = 10, MinWidth = 300 };
+            var txtGrupo = new TextBox { Header = "Nuevo Grupo", PlaceholderText = "Escribe el grupo para los seleccionados" };
+            panel.Children.Add(txtGrupo);
+            editDialog.Content = panel;
+
+            var result = await editDialog.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                using var db = new UppDbContext();
+                foreach (var al in seleccionados)
+                {
+                    var alumno = await db.Alumnos.FindAsync(al.Nc);
+                    if (alumno != null)
+                    {
+                        alumno.Grupo = txtGrupo.Text ?? "";
+                    }
+                }
+                await db.SaveChangesAsync();
+                CargarDatos();
             }
         }
 
@@ -464,11 +518,13 @@ namespace JustificantesUPP
                     {
                         if (await db.Alumnos.AnyAsync(a => a.Nc == partes[0])) continue;
                         Enum.TryParse(partes[3], true, out Genero g);
+                        string grupo = partes.Length >= 5 ? partes[4] : "";
                         db.Alumnos.Add(new Alumno
                         {
                             Nc = partes[0],
                             Nombre = partes[1],
                             Correo = partes[2],
+                            Grupo = grupo,
                             Genero = g
                         });
                     }
@@ -512,8 +568,8 @@ namespace JustificantesUPP
             var file = await picker.PickSaveFileAsync();
             if (file != null)
             {
-                var lineas = new List<string> { "NC,Nombre,Correo,Genero" };
-                lineas.AddRange(seleccionados.Select(a => $"{a.Nc},{a.Nombre},{a.Correo},{a.Genero}"));
+                var lineas = new List<string> { "NC,Nombre,Correo,Genero,Grupo" };
+                lineas.AddRange(seleccionados.Select(a => $"{a.Nc},{a.Nombre},{a.Correo},{a.Genero},{a.Grupo}"));
                 await System.IO.File.WriteAllLinesAsync(file.Path, lineas);
             }
         }
