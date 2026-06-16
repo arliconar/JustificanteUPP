@@ -138,15 +138,78 @@ namespace JustificantesUPP.Modelos
               "Debido a la naturaleza de la situación, se solicita el apoyo de las instancias correspondientes para otorgar las facilidades académicas necesarias. Agradezco de antemano su atención y comprensión a la presente, quedando a su entera disposición para cualquier aclaración o información adicional.\n\n" +
               "Atentamente\n\n" + OwnerData.Nombre+"\n\n" + OwnerData.Correo;
         }
+        public string getMotivoHtml()
+        {
+            // Convertimos los saltos de línea normales a etiquetas <br/> para HTML
+            string htmlMotivo = Motivo.Replace("\r\n", "<br/>").Replace("\n", "<br/>");
+            string profesoresHtml = getProfesores().Replace(Environment.NewLine, "<br/>");
+
+            return $@"
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <style>
+        body {{
+            font-family: 'Segoe UI', Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333333;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }}
+        .container {{
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }}
+        p {{
+            margin-bottom: 15px;
+        }}
+        .footer {{
+            margin-top: 30px;
+            color: #666666;
+        }}
+    </style>
+</head>
+<body>
+    <div class='container'>
+        <p>{profesoresHtml},</p>
+        <p>Por medio de la presente, me permito hacer de su conocimiento la justificación de inasistencia de <strong>{getAlumnos()}</strong> correspondiente del {getperido()}.</p>
+        <p>Dicha ausencia se fundamenta en lo siguiente:</p>
+        <p style='background-color: #f1f1f1; padding: 15px; border-left: 4px solid #005A9E; border-radius: 4px;'>
+            <em>{htmlMotivo}</em>
+        </p>
+        <p>Debido a la naturaleza de la situación, se solicita el apoyo de las instancias correspondientes para otorgar las facilidades académicas necesarias. Agradezco de antemano su atención y comprensión a la presente, quedando a mi entera disposición para cualquier aclaración o información adicional.</p>
+        <div class='footer'>
+            <p>Atentamente,<br/><br/>
+            <strong>{OwnerData.Nombre}</strong><br/>
+            <a href='mailto:{OwnerData.Correo}' style='color: #005A9E; text-decoration: none;'>{OwnerData.Correo}</a></p>
+        </div>
+    </div>
+</body>
+</html>";
+        }
+
         public MimeKit.MimeMessage CrearCorreo()
         {
             var mensaje = new MimeKit.MimeMessage();
             mensaje.Subject = getAsunto();
             mensaje.From.Add(new MailboxAddress(OwnerData.Nombre, OwnerData.Correo));
-            mensaje.Body = new TextPart("plain")
-            {
-                Text = getMotivo()
-            };
+            
+            // Usamos formato HTML en lugar de texto plano
+            var bodyBuilder = new BodyBuilder();
+            bodyBuilder.HtmlBody = getMotivoHtml();
+            
+            // También adjuntamos la versión de texto plano como respaldo (buena práctica)
+            bodyBuilder.TextBody = getMotivo();
+
+            mensaje.Body = bodyBuilder.ToMessageBody();
             foreach (var profesor in Profesores)
             {
                 mensaje.To.Add(new MailboxAddress(profesor.Nombre, profesor.Correo));
