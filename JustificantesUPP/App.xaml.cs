@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -21,31 +21,70 @@ using Windows.Foundation.Collections;
 
 namespace JustificantesUPP
 {
-    /// <summary>
-    /// Provides application-specific behavior to supplement the default Application class.
-    /// </summary>
     public partial class App : Application
     {
         private Window? _window;
 
-        /// <summary>
-        /// Initializes the singleton application object.  This is the first line of authored code
-        /// executed, and as such is the logical equivalent of main() or WinMain().
-        /// </summary>
-        public App()
+        [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true, CharSet = System.Runtime.InteropServices.CharSet.Unicode)]
+        public static extern int MessageBoxW(IntPtr hWnd, string text, string caption, uint type);
+
+        private void MostrarErrorGlobal(string mensaje)
         {
-            InitializeComponent();
-            SQLitePCL.Batteries.Init();
+            Log(mensaje);
+            MessageBoxW(IntPtr.Zero, mensaje, "Error fatal en JustificantesUPP", 0x10); // 0x10 is MB_ICONERROR
         }
 
-        /// <summary>
-        /// Invoked when the application is launched.
-        /// </summary>
-        /// <param name="args">Details about the launch request and process.</param>
+        private void Log(string message)
+        {
+            try
+            {
+                string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "JustificantesUPP_Log.txt");
+                System.IO.File.AppendAllText(path, $"{DateTime.Now}: {message}{Environment.NewLine}");
+            }
+            catch { }
+        }
+
+        public App()
+        {
+            AppDomain.CurrentDomain.UnhandledException += (s, e) =>
+            {
+                MostrarErrorGlobal($"UnhandledException (AppDomain): {e.ExceptionObject}");
+            };
+
+            this.UnhandledException += App_UnhandledException;
+            
+            try 
+            {
+                Log("App initializing...");
+                InitializeComponent();
+                SQLitePCL.Batteries.Init();
+                Log("App initialization completed.");
+            } 
+            catch (Exception ex) 
+            {
+                MostrarErrorGlobal($"Error in constructor: {ex}");
+            }
+        }
+
+        private void App_UnhandledException(object sender, Microsoft.UI.Xaml.UnhandledExceptionEventArgs e)
+        {
+            MostrarErrorGlobal($"Unhandled Exception (XAML): {e.Exception}");
+            e.Handled = true; 
+        }
+
         protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
-            _window = new MainWindow();
-            _window.Activate();
+            Log("OnLaunched called.");
+            try 
+            {
+                _window = new MainWindow();
+                _window.Activate();
+                Log("MainWindow activated.");
+            } 
+            catch (Exception ex) 
+            {
+                MostrarErrorGlobal($"Error in OnLaunched: {ex}");
+            }
         }
     }
 }

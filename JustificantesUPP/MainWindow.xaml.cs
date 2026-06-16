@@ -12,6 +12,7 @@ using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using MimeKit;
 using System;
+using System.Text.Json;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -31,6 +32,7 @@ namespace JustificantesUPP
         
         public MainWindow()
         {
+            var ensureDllLoad = new CommunityToolkit.WinUI.UI.Controls.DataGrid();
             InitializeComponent();
             try
             {
@@ -86,12 +88,22 @@ namespace JustificantesUPP
             ProfesoresGrid.ItemsSource = listaOriginalProfesores;
         }
 
+        private string RemoveDiacritics(string text)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+                return text;
+
+            text = text.Normalize(System.Text.NormalizationForm.FormD);
+            var chars = text.Where(c => System.Globalization.CharUnicodeInfo.GetUnicodeCategory(c) != System.Globalization.UnicodeCategory.NonSpacingMark).ToArray();
+            return new string(chars).Normalize(System.Text.NormalizationForm.FormC);
+        }
+
         private void TxtBusquedaAlumnos_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
-            var texto = sender.Text.ToLower();
+            var texto = RemoveDiacritics(sender.Text?.ToLower() ?? "");
             var filtrados = listaOriginalAlumnos.Where(a =>
-                a.Nombre.ToLower().Contains(texto) ||
-                a.Nc.ToString().Contains(texto)
+                RemoveDiacritics(a.Nombre?.ToLower() ?? "").Contains(texto) ||
+                (a.Nc?.ToString() ?? "").Contains(texto)
             ).ToList();
 
             AlumnosGrid.ItemsSource = filtrados;
@@ -99,13 +111,12 @@ namespace JustificantesUPP
 
         private void TxtBusquedaProfesores_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
-            var texto = sender.Text.ToLower();
+            var texto = RemoveDiacritics(sender.Text?.ToLower() ?? "");
             var filtrados = listaOriginalProfesores.Where(p =>
-                p.Nombre.ToLower().Contains(texto) ||
-                p.Correo.ToLower().Contains(texto)
+                RemoveDiacritics(p.Nombre?.ToLower() ?? "").Contains(texto) ||
+                RemoveDiacritics(p.Correo?.ToLower() ?? "").Contains(texto)
             ).ToList();
             ProfesoresGrid.ItemsSource = filtrados;
-       
         }
         private async void InicializarBaseDeDatos()
         {
@@ -656,6 +667,127 @@ namespace JustificantesUPP
                 var lineas = new List<string> { "Nombre,Correo,Genero" };
                 lineas.AddRange(seleccionados.Select(p => $"{p.Nombre},{p.Correo},{p.Genero}"));
                 await System.IO.File.WriteAllLinesAsync(file.Path, lineas);
+            }
+        }
+
+        private async void BtnCargarJson_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new ContentDialog
+            {
+                Title = "Cargar JSON",
+                PrimaryButtonText = "Aceptar",
+                CloseButtonText = "Cancelar",
+                XamlRoot = this.Content.XamlRoot
+            };
+
+            var panel = new StackPanel { Spacing = 10, MinWidth = 400 };
+            var txtJson = new TextBox 
+            { 
+                Header = "Inserta tu JSON aquí", 
+                AcceptsReturn = true, 
+                TextWrapping = TextWrapping.Wrap,
+                Height = 250
+            };
+
+            panel.Children.Add(txtJson);
+            dialog.Content = panel;
+
+            var result = await dialog.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                string json = txtJson.Text;
+                if (string.IsNullOrWhiteSpace(json)) return;
+
+                try
+                {
+                    using (JsonDocument doc = JsonDocument.Parse(json))
+                    {
+                        var root = doc.RootElement;
+                        
+                        // 1. Limpiar selecciones previas
+                        foreach (var a in listaOriginalAlumnos) a.IsSelected = false;
+                        foreach (var p in listaOriginalProfesores) p.IsSelected = false;
+
+                        // 2. Alumno
+                        if (root.TryGetProperty("email", out JsonElement emailElement))
+                        {
+                            string email = emailElement.GetString();
+                            var alumno = listaOriginalAlumnos.FirstOrDefault(a => string.Equals(a.Correo, email, StringComparison.OrdinalIgnoreCase));
+                            if (alumno != null) alumno.IsSelected = true;
+                        }
+
+                        // 3. Profesores
+                        if (root.TryGetProperty("materias", out JsonElement materiasElement) && materiasElement.ValueKind == JsonValueKind.Array)
+                        {
+                            foreach (var materia in materiasElement.EnumerateArray())
+                            {
+                                if (materia.TryGetProperty("profesor", out JsonElement profElement))
+                                {
+                                    string nombreProfesor = profElement.GetString()?.ToLower() ?? "";
+                                    var profesor = listaOriginalProfesores.FirstOrDefault(p => 
+                                        p.Nombre.ToLower().Contains(nombreProfesor) || 
+                                        nombreProfesor.Contains(p.Nombre.ToLower())
+                                    );
+                                    if (profesor != null) profesor.IsSelected = true;
+                                }
+                            }
+                        }
+
+                        // 4. Fechas
+                        if (root.TryGetProperty("fecha_inicio", out JsonElement fechaInicioElement))
+                        {
+                            if (DateTimeOffset.TryParse(fechaInicioElement.GetString(), out DateTimeOffset fechaInicio))
+                            {
+                                DpFechaInicio.Date = fechaInicio;
+                            }
+                        }
+
+                        if (root.TryGetProperty("fecha_fin", out JsonElement fechaFinElement))
+                        {
+                            if (DateTimeOffset.TryParse(fechaFinElement.GetString(), out DateTimeOffset fechaFin))
+                            {
+                                DpFechaFinal.Date = fechaFin;
+                            }
+                        }
+
+                        // 5. Categoría a Motivo
+                        if (root.TryGetProperty("categoria", out JsonElement categoriaElement))
+                        {
+                            string categoria = categoriaElement.GetString();
+                            TxtMotivo.Document.SetText(Microsoft.UI.Text.TextSetOptions.None, categoria);
+                        }
+
+                        // Refrescar las vistas de DataGrid
+                        AlumnosGrid.ItemsSource = null;
+                        AlumnosGrid.ItemsSource = listaOriginalAlumnos;
+
+                        ProfesoresGrid.ItemsSource = null;
+                        ProfesoresGrid.ItemsSource = listaOriginalProfesores;
+
+                        // Workaround: forzar redibujado de la primera columna (Checkbox) modificando su ancho 1px
+                        if (AlumnosGrid.Columns.Count > 0)
+                        {
+                            AlumnosGrid.Columns[0].Width = new CommunityToolkit.WinUI.UI.Controls.DataGridLength(121);
+                            AlumnosGrid.Columns[0].Width = new CommunityToolkit.WinUI.UI.Controls.DataGridLength(120);
+                        }
+                        if (ProfesoresGrid.Columns.Count > 0)
+                        {
+                            ProfesoresGrid.Columns[0].Width = new CommunityToolkit.WinUI.UI.Controls.DataGridLength(121);
+                            ProfesoresGrid.Columns[0].Width = new CommunityToolkit.WinUI.UI.Controls.DataGridLength(120);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    var errorDialog = new ContentDialog
+                    {
+                        Title = "Error",
+                        Content = "El JSON introducido no es válido: " + ex.Message,
+                        CloseButtonText = "Aceptar",
+                        XamlRoot = this.Content.XamlRoot
+                    };
+                    _ = errorDialog.ShowAsync();
+                }
             }
         }
 

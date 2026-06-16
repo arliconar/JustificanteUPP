@@ -1,7 +1,7 @@
 {
-  "version": 3,
+  "version": 4,
   "targets": {
-    "net10.0-windows10.0.19041": {
+    "net10.0-windows10.0.19041.0": {
       "BouncyCastle.Cryptography/2.6.2": {
         "type": "package",
         "compile": {
@@ -1015,7 +1015,7 @@
         }
       }
     },
-    "net10.0-windows10.0.19041/win-arm64": {
+    "net10.0-windows10.0.19041.0/win-arm64": {
       "BouncyCastle.Cryptography/2.6.2": {
         "type": "package",
         "compile": {
@@ -1853,7 +1853,7 @@
         }
       }
     },
-    "net10.0-windows10.0.19041/win-x64": {
+    "net10.0-windows10.0.19041.0/win-x64": {
       "BouncyCastle.Cryptography/2.6.2": {
         "type": "package",
         "compile": {
@@ -2691,7 +2691,7 @@
         }
       }
     },
-    "net10.0-windows10.0.19041/win-x86": {
+    "net10.0-windows10.0.19041.0/win-x86": {
       "BouncyCastle.Cryptography/2.6.2": {
         "type": "package",
         "compile": {
@@ -6314,7 +6314,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net10.0-windows10.0.19041": [
+    "net10.0-windows10.0.19041.0": [
       "CommunityToolkit.WinUI.UI.Controls.DataGrid >= 7.1.2",
       "Google.Apis.Gmail.v1 >= 1.73.0.4029",
       "Microsoft.EntityFrameworkCore >= 10.0.7",
@@ -6355,7 +6355,7 @@
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net10.0-windows10.0.19041": {
+        "net10.0-windows10.0.19041.0": {
           "framework": "net10.0-windows10.0.19041",
           "targetAlias": "net10.0-windows10.0.19041.0",
           "projectReferences": {}
@@ -6371,16 +6371,17 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.200"
+      "SdkAnalysisLevel": "10.0.300"
     },
     "frameworks": {
-      "net10.0-windows10.0.19041": {
+      "net10.0-windows10.0.19041.0": {
         "framework": "net10.0-windows10.0.19041",
         "targetAlias": "net10.0-windows10.0.19041.0",
         "dependencies": {
           "CommunityToolkit.WinUI.UI.Controls.DataGrid": {
             "target": "Package",
-            "version": "[7.1.2, )"
+            "version": "[7.1.2, )",
+            "generatePathProperty": true
           },
           "Google.Apis.Gmail.v1": {
             "target": "Package",
@@ -6425,27 +6426,27 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Runtime.win-arm64",
-            "version": "[10.0.6, 10.0.6]"
+            "version": "[10.0.9, 10.0.9]"
           },
           {
             "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-            "version": "[10.0.6, 10.0.6]"
+            "version": "[10.0.9, 10.0.9]"
           },
           {
             "name": "Microsoft.AspNetCore.App.Runtime.win-x86",
-            "version": "[10.0.6, 10.0.6]"
+            "version": "[10.0.9, 10.0.9]"
           },
           {
             "name": "Microsoft.NETCore.App.Runtime.win-arm64",
-            "version": "[10.0.6, 10.0.6]"
+            "version": "[10.0.9, 10.0.9]"
           },
           {
             "name": "Microsoft.NETCore.App.Runtime.win-x64",
-            "version": "[10.0.6, 10.0.6]"
+            "version": "[10.0.9, 10.0.9]"
           },
           {
             "name": "Microsoft.NETCore.App.Runtime.win-x86",
-            "version": "[10.0.6, 10.0.6]"
+            "version": "[10.0.9, 10.0.9]"
           },
           {
             "name": "Microsoft.Windows.SDK.NET.Ref",
@@ -6453,15 +6454,15 @@
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-            "version": "[10.0.6, 10.0.6]"
+            "version": "[10.0.9, 10.0.9]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-            "version": "[10.0.6, 10.0.6]"
+            "version": "[10.0.9, 10.0.9]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-            "version": "[10.0.6, 10.0.6]"
+            "version": "[10.0.9, 10.0.9]"
           }
         ],
         "frameworkReferences": {
@@ -6472,7 +6473,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.202/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

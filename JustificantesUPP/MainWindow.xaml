@@ -13,6 +13,7 @@
                  
             <TabView.TabStripFooter>
                 <CommandBar Background="Transparent" DefaultLabelPosition="Right">
+                    <AppBarButton Icon="Document" Label="Cargar JSON" Click="BtnCargarJson_Click"/>
                     <AppBarButton Icon="ContactInfo" Label="Editar tutor" Click="BtnEditarOwner_Click"/>
                 </CommandBar>
             </TabView.TabStripFooter>
@@ -57,18 +58,18 @@
                             </MenuFlyout>
                         </controls:DataGrid.ContextFlyout>
                         <controls:DataGrid.Columns>
-                            <controls:DataGridTemplateColumn Header="Seleccionar">
+                            <controls:DataGridTemplateColumn Header="Seleccionar" Width="120">
                                 <controls:DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" />
                                     </DataTemplate>
                                 </controls:DataGridTemplateColumn.CellTemplate>
                             </controls:DataGridTemplateColumn>
-                            <controls:DataGridTextColumn Header="NC" Binding="{Binding Nc}" IsReadOnly="True"/>
-                            <controls:DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" IsReadOnly="True"/>
-                            <controls:DataGridTextColumn Header="Correo" Binding="{Binding Correo}" IsReadOnly="True"/>
-                            <controls:DataGridTextColumn Header="Grupo" Binding="{Binding Grupo}" IsReadOnly="True"/>
-                            <controls:DataGridTextColumn Header="G&#233;nero" Binding="{Binding Genero}" IsReadOnly="True"/>
+                            <controls:DataGridTextColumn Header="NC" Binding="{Binding Nc}" IsReadOnly="True" Width="120"/>
+                            <controls:DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" IsReadOnly="True" Width="*"/>
+                            <controls:DataGridTextColumn Header="Correo" Binding="{Binding Correo}" IsReadOnly="True" Width="*"/>
+                            <controls:DataGridTextColumn Header="Grupo" Binding="{Binding Grupo}" IsReadOnly="True" Width="100"/>
+                            <controls:DataGridTextColumn Header="G&#233;nero" Binding="{Binding Genero}" IsReadOnly="True" Width="120"/>
                         </controls:DataGrid.Columns>
                     </controls:DataGrid>
                 </Grid>
@@ -112,16 +113,16 @@
                             </MenuFlyout>
                         </controls:DataGrid.ContextFlyout>
                         <controls:DataGrid.Columns>
-                            <controls:DataGridTemplateColumn Header="Seleccionar">
+                            <controls:DataGridTemplateColumn Header="Seleccionar" Width="120">
                                 <controls:DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" />
                                     </DataTemplate>
                                 </controls:DataGridTemplateColumn.CellTemplate>
                             </controls:DataGridTemplateColumn>
-                            <controls:DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True"/>
-                            <controls:DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" IsReadOnly="True"/>
-                            <controls:DataGridTextColumn Header="Correo" Binding="{Binding Correo}" IsReadOnly="True"/>
+                            <controls:DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" Width="80"/>
+                            <controls:DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" IsReadOnly="True" Width="*"/>
+                            <controls:DataGridTextColumn Header="Correo" Binding="{Binding Correo}" IsReadOnly="True" Width="*"/>
                         </controls:DataGrid.Columns>
                     </controls:DataGrid>
                 </Grid>

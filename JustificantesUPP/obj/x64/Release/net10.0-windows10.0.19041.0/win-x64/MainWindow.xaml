@@ -13,7 +13,8 @@
                  
             <TabView.TabStripFooter>
                 <CommandBar Background="Transparent" DefaultLabelPosition="Right">
-                    <AppBarButton x:ConnectionId='4' Icon="ContactInfo" Label="Editar tutor"                             />
+                    <AppBarButton x:ConnectionId='4' Icon="Document" Label="Cargar JSON"                            />
+                    <AppBarButton x:ConnectionId='5' Icon="ContactInfo" Label="Editar tutor"                             />
                 </CommandBar>
             </TabView.TabStripFooter>
 
@@ -33,40 +34,42 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         
-                        <AutoSuggestBox x:ConnectionId='29' x:Name="TxtBusquedaAlumnos" 
+                        <AutoSuggestBox x:ConnectionId='31' x:Name="TxtBusquedaAlumnos" 
                             PlaceholderText="Buscar alumno por nombre o NC..." 
                             QueryIcon="Find" 
                                                                          
                             Margin="0,0,10,0"/>
 
                                                 <CommandBar Grid.Column="1" DefaultLabelPosition="Right" Background="Transparent">
-                            <AppBarButton x:ConnectionId='30' Icon="SelectAll" Label="Seleccionar Todos"                                         />
-                            <AppBarButton x:ConnectionId='31' Icon="ClearSelection" Label="Deseleccionar"                                           />
-                            <AppBarButton x:ConnectionId='32' Icon="Upload" Label="Importar CSV"                                 />
-                            <AppBarButton x:ConnectionId='33' Icon="Download" Label="Exportar CSV"                                 />
+                            <AppBarButton x:ConnectionId='32' Icon="SelectAll" Label="Seleccionar Todos"                                         />
+                            <AppBarButton x:ConnectionId='33' Icon="ClearSelection" Label="Deseleccionar"                                           />
+                            <AppBarButton x:ConnectionId='34' Icon="Upload" Label="Importar CSV"                                 />
+                            <AppBarButton x:ConnectionId='35' Icon="Download" Label="Exportar CSV"                                 />
                         </CommandBar>
                     </Grid>
 
-                                        <controls:DataGrid x:ConnectionId='24' x:Name="AlumnosGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="False" GridLinesVisibility="All">
+                                        <controls:DataGrid x:ConnectionId='25' x:Name="AlumnosGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="False" GridLinesVisibility="All">
                         <controls:DataGrid.ContextFlyout>
                             <MenuFlyout>
-                                <MenuFlyoutItem x:ConnectionId='25' Text="Agregar Nuevo"                                 Icon="Add"/>
-                                <MenuFlyoutItem x:ConnectionId='26' Text="Editar"                                Icon="Edit"/>
-                                <MenuFlyoutItem x:ConnectionId='27' Text="Eliminar"                                  Icon="Delete"/>
+                                <MenuFlyoutItem x:ConnectionId='26' Text="Agregar Nuevo"                                 Icon="Add"/>
+                                <MenuFlyoutItem x:ConnectionId='27' Text="Editar"                                Icon="Edit"/>
+                                <MenuFlyoutItem x:ConnectionId='28' Text="Editar Grupo (Seleccionados)"                                      Icon="Edit"/>
+                                <MenuFlyoutItem x:ConnectionId='29' Text="Eliminar"                                  Icon="Delete"/>
                             </MenuFlyout>
                         </controls:DataGrid.ContextFlyout>
                         <controls:DataGrid.Columns>
-                            <controls:DataGridTemplateColumn Header="Seleccionar">
+                            <controls:DataGridTemplateColumn Header="Seleccionar" Width="120">
                                 <controls:DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" />
                                     </DataTemplate>
                                 </controls:DataGridTemplateColumn.CellTemplate>
                             </controls:DataGridTemplateColumn>
-                            <controls:DataGridTextColumn Header="NC" Binding="{Binding Nc}" IsReadOnly="True"/>
-                            <controls:DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" IsReadOnly="True"/>
-                            <controls:DataGridTextColumn Header="Correo" Binding="{Binding Correo}" IsReadOnly="True"/>
-                            <controls:DataGridTextColumn Header="G&#233;nero" Binding="{Binding Genero}" IsReadOnly="True"/>
+                            <controls:DataGridTextColumn Header="NC" Binding="{Binding Nc}" IsReadOnly="True" Width="120"/>
+                            <controls:DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" IsReadOnly="True" Width="*"/>
+                            <controls:DataGridTextColumn Header="Correo" Binding="{Binding Correo}" IsReadOnly="True" Width="*"/>
+                            <controls:DataGridTextColumn Header="Grupo" Binding="{Binding Grupo}" IsReadOnly="True" Width="100"/>
+                            <controls:DataGridTextColumn Header="G&#233;nero" Binding="{Binding Genero}" IsReadOnly="True" Width="120"/>
                         </controls:DataGrid.Columns>
                     </controls:DataGrid>
                 </Grid>
@@ -87,39 +90,39 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         
-                        <AutoSuggestBox x:ConnectionId='19' x:Name="TxtBusquedaProfesores" 
+                        <AutoSuggestBox x:ConnectionId='20' x:Name="TxtBusquedaProfesores" 
                             PlaceholderText="Buscar profesor por nombre o correo..." 
                             QueryIcon="Find" 
                                                                             
                             Margin="0,0,10,0"/>
 
                                                 <CommandBar Grid.Column="1" DefaultLabelPosition="Right" Background="Transparent">
-                            <AppBarButton x:ConnectionId='20' Icon="SelectAll" Label="Seleccionar Todos"                                            />
-                            <AppBarButton x:ConnectionId='21' Icon="ClearSelection" Label="Deseleccionar"                                              />
-                            <AppBarButton x:ConnectionId='22' Icon="Upload" Label="Importar CSV"                                    />
-                            <AppBarButton x:ConnectionId='23' Icon="Download" Label="Exportar CSV"                                    />
+                            <AppBarButton x:ConnectionId='21' Icon="SelectAll" Label="Seleccionar Todos"                                            />
+                            <AppBarButton x:ConnectionId='22' Icon="ClearSelection" Label="Deseleccionar"                                              />
+                            <AppBarButton x:ConnectionId='23' Icon="Upload" Label="Importar CSV"                                    />
+                            <AppBarButton x:ConnectionId='24' Icon="Download" Label="Exportar CSV"                                    />
                         </CommandBar>
                     </Grid>
 
-                                        <controls:DataGrid x:ConnectionId='14' x:Name="ProfesoresGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="False" GridLinesVisibility="All">
+                                        <controls:DataGrid x:ConnectionId='15' x:Name="ProfesoresGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="False" GridLinesVisibility="All">
                         <controls:DataGrid.ContextFlyout>
                             <MenuFlyout>
-                                <MenuFlyoutItem x:ConnectionId='15' Text="Agregar Nuevo"                                   Icon="Add"/>
-                                <MenuFlyoutItem x:ConnectionId='16' Text="Editar"                                  Icon="Edit"/>
-                                <MenuFlyoutItem x:ConnectionId='17' Text="Eliminar"                                    Icon="Delete"/>
+                                <MenuFlyoutItem x:ConnectionId='16' Text="Agregar Nuevo"                                   Icon="Add"/>
+                                <MenuFlyoutItem x:ConnectionId='17' Text="Editar"                                  Icon="Edit"/>
+                                <MenuFlyoutItem x:ConnectionId='18' Text="Eliminar"                                    Icon="Delete"/>
                             </MenuFlyout>
                         </controls:DataGrid.ContextFlyout>
                         <controls:DataGrid.Columns>
-                            <controls:DataGridTemplateColumn Header="Seleccionar">
+                            <controls:DataGridTemplateColumn Header="Seleccionar" Width="120">
                                 <controls:DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" />
                                     </DataTemplate>
                                 </controls:DataGridTemplateColumn.CellTemplate>
                             </controls:DataGridTemplateColumn>
-                            <controls:DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True"/>
-                            <controls:DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" IsReadOnly="True"/>
-                            <controls:DataGridTextColumn Header="Correo" Binding="{Binding Correo}" IsReadOnly="True"/>
+                            <controls:DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" Width="80"/>
+                            <controls:DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" IsReadOnly="True" Width="*"/>
+                            <controls:DataGridTextColumn Header="Correo" Binding="{Binding Correo}" IsReadOnly="True" Width="*"/>
                         </controls:DataGrid.Columns>
                     </controls:DataGrid>
                 </Grid>
@@ -149,13 +152,13 @@
                         <Rectangle Height="1" Fill="{ThemeResource SystemControlBackgroundBaseLowBrush}" Margin="0,5"/>
 
                         <StackPanel Orientation="Horizontal" Spacing="20" HorizontalAlignment="Center">
-                            <CalendarDatePicker x:ConnectionId='12' x:Name="DpFechaInicio" 
+                            <CalendarDatePicker x:ConnectionId='13' x:Name="DpFechaInicio" 
                                     Header="Fecha de Inicio" 
                                     PlaceholderText="Selecciona inicio"
                                     Width="240"
                                                 />
 
-                            <CalendarDatePicker x:ConnectionId='13' x:Name="DpFechaFinal" 
+                            <CalendarDatePicker x:ConnectionId='14' x:Name="DpFechaFinal" 
                                     Header="Fecha Final" 
                                     PlaceholderText="Selecciona fin"
                                     Width="240"/>
@@ -165,12 +168,12 @@
                             <TextBlock Text="Motivo de la inasistencia" Margin="0,0,0,5" FontWeight="SemiBold"/>
 
                             <CommandBar DefaultLabelPosition="Right" HorizontalAlignment="Left" Background="Transparent">
-                                <AppBarButton x:ConnectionId='9' Icon="Bold"                   ToolTipService.ToolTip="Negrita (Ctrl+B)"/>
-                                <AppBarButton x:ConnectionId='10' Icon="Italic"                     ToolTipService.ToolTip="Cursiva (Ctrl+I)"/>
-                                <AppBarButton x:ConnectionId='11' Icon="Underline"                        ToolTipService.ToolTip="Subrayado (Ctrl+U)"/>
+                                <AppBarButton x:ConnectionId='10' Icon="Bold"                   ToolTipService.ToolTip="Negrita (Ctrl+B)"/>
+                                <AppBarButton x:ConnectionId='11' Icon="Italic"                     ToolTipService.ToolTip="Cursiva (Ctrl+I)"/>
+                                <AppBarButton x:ConnectionId='12' Icon="Underline"                        ToolTipService.ToolTip="Subrayado (Ctrl+U)"/>
                             </CommandBar>
 
-                            <RichEditBox x:ConnectionId='8' x:Name="TxtMotivo" 
+                            <RichEditBox x:ConnectionId='9' x:Name="TxtMotivo" 
                  PlaceholderText="Escribe aquí..."
                  MinHeight="150"
                  TextWrapping="Wrap" />
@@ -216,11 +219,11 @@
 
                             <TextBlock Text="Opciones de Envío" FontWeight="SemiBold" FontSize="16"/>
 
-                            <CheckBox x:ConnectionId='6' x:Name="ChkCopiaAlumno" 
+                            <CheckBox x:ConnectionId='7' x:Name="ChkCopiaAlumno" 
                           Content="Enviar copia al alumno" 
                           IsChecked="True" />
 
-                            <Button x:ConnectionId='7' x:Name="BtnEnviarCorreo" 
+                            <Button x:ConnectionId='8' x:Name="BtnEnviarCorreo" 
                                                      
                         HorizontalAlignment="Stretch" 
                         Style="{StaticResource AccentButtonStyle}">
@@ -237,7 +240,7 @@
 
                             <TextBlock Text="Documentos Físicos" FontWeight="SemiBold" FontSize="16"/>
 
-                            <Button x:ConnectionId='5' x:Name="BtnGenerarWord" 
+                            <Button x:ConnectionId='6' x:Name="BtnGenerarWord" 
                                                     
                         HorizontalAlignment="Stretch">
                                 <StackPanel Orientation="Horizontal" Spacing="10">

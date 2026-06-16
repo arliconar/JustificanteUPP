@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sMzNnS6wxLU=",
+  "dgSpecHash": "kHAhQIK7aOU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\artzm\\source\\repos\\JustificanteUPP\\JustificantesUPP\\JustificantesUPP.csproj",
+  "projectFilePath": "C:\\Users\\artzm\\OneDrive\\Documentos\\GitHub\\JustificanteUPP\\JustificantesUPP\\JustificantesUPP.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\artzm\\.nuget\\packages\\bouncycastle.cryptography\\2.6.2\\bouncycastle.cryptography.2.6.2.nupkg.sha512",
     "C:\\Users\\artzm\\.nuget\\packages\\communitytoolkit.winui.ui.controls.datagrid\\7.1.2\\communitytoolkit.winui.ui.controls.datagrid.7.1.2.nupkg.sha512",
@@ -51,16 +51,16 @@
     "C:\\Users\\artzm\\.nuget\\packages\\system.management\\7.0.2\\system.management.7.0.2.nupkg.sha512",
     "C:\\Users\\artzm\\.nuget\\packages\\system.numerics.tensors\\9.0.0\\system.numerics.tensors.9.0.0.nupkg.sha512",
     "C:\\Users\\artzm\\.nuget\\packages\\system.security.cryptography.pkcs\\10.0.0\\system.security.cryptography.pkcs.10.0.0.nupkg.sha512",
-    "C:\\Users\\artzm\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\10.0.6\\microsoft.netcore.app.runtime.win-x86.10.0.6.nupkg.sha512",
-    "C:\\Users\\artzm\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.57\\microsoft.windows.sdk.net.ref.10.0.19041.57.nupkg.sha512",
-    "C:\\Users\\artzm\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\10.0.6\\microsoft.aspnetcore.app.runtime.win-x86.10.0.6.nupkg.sha512",
-    "C:\\Users\\artzm\\.nuget\\packages\\microsoft.netcore.app.runtime.win-arm64\\10.0.6\\microsoft.netcore.app.runtime.win-arm64.10.0.6.nupkg.sha512",
-    "C:\\Users\\artzm\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\10.0.6\\microsoft.aspnetcore.app.runtime.win-x64.10.0.6.nupkg.sha512",
-    "C:\\Users\\artzm\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-arm64\\10.0.6\\microsoft.windowsdesktop.app.runtime.win-arm64.10.0.6.nupkg.sha512",
-    "C:\\Users\\artzm\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\10.0.6\\microsoft.windowsdesktop.app.runtime.win-x64.10.0.6.nupkg.sha512",
-    "C:\\Users\\artzm\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-arm64\\10.0.6\\microsoft.aspnetcore.app.runtime.win-arm64.10.0.6.nupkg.sha512",
-    "C:\\Users\\artzm\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\10.0.6\\microsoft.netcore.app.runtime.win-x64.10.0.6.nupkg.sha512",
-    "C:\\Users\\artzm\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\10.0.6\\microsoft.windowsdesktop.app.runtime.win-x86.10.0.6.nupkg.sha512"
+    "C:\\Users\\artzm\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\10.0.9\\microsoft.netcore.app.runtime.win-x86.10.0.9.nupkg.sha512",
+    "C:\\Users\\artzm\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\10.0.9\\microsoft.netcore.app.runtime.win-x64.10.0.9.nupkg.sha512",
+    "C:\\Users\\artzm\\.nuget\\packages\\microsoft.netcore.app.runtime.win-arm64\\10.0.9\\microsoft.netcore.app.runtime.win-arm64.10.0.9.nupkg.sha512",
+    "C:\\Users\\artzm\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\10.0.9\\microsoft.windowsdesktop.app.runtime.win-x86.10.0.9.nupkg.sha512",
+    "C:\\Users\\artzm\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\10.0.9\\microsoft.windowsdesktop.app.runtime.win-x64.10.0.9.nupkg.sha512",
+    "C:\\Users\\artzm\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-arm64\\10.0.9\\microsoft.windowsdesktop.app.runtime.win-arm64.10.0.9.nupkg.sha512",
+    "C:\\Users\\artzm\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\10.0.9\\microsoft.aspnetcore.app.runtime.win-x86.10.0.9.nupkg.sha512",
+    "C:\\Users\\artzm\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\10.0.9\\microsoft.aspnetcore.app.runtime.win-x64.10.0.9.nupkg.sha512",
+    "C:\\Users\\artzm\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-arm64\\10.0.9\\microsoft.aspnetcore.app.runtime.win-arm64.10.0.9.nupkg.sha512",
+    "C:\\Users\\artzm\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.57\\microsoft.windows.sdk.net.ref.10.0.19041.57.nupkg.sha512"
   ],
   "logs": []
 }
