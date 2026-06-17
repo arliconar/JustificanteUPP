@@ -153,7 +153,9 @@ namespace JustificantesUPP
         private async void BtnEnviarCorreo_Click(object sender, RoutedEventArgs e)
         {
             PrepararJustificante();
-            MimeMessage mensaje = justi.CrearCorreo();
+            bool enviarCopiaAlumno = ChkCopiaAlumno.IsChecked ?? false;
+            bool enviarCopiaCoordinacion = ChkCopiaCoordinacion.IsChecked ?? false;
+            MimeMessage mensaje = justi.CrearCorreo(enviarCopiaAlumno, enviarCopiaCoordinacion);
             MailClass mail = new MailClass();
             await mail.EnviarAsync(mensaje);
         }
@@ -811,6 +813,7 @@ namespace JustificantesUPP
             var panel = new StackPanel { Spacing = 10, MinWidth = 300 };
             var txtNombre = new TextBox { Header = "Nombre", Text = isNew ? "" : owner.Nombre };
             var txtCorreo = new TextBox { Header = "Correo", Text = isNew ? "" : owner.Correo };
+            var txtCorreoCoordinacion = new TextBox { Header = "Correo de coordinación", Text = isNew ? "" : owner.CorreoCoordinacion };
             var cmbGenero = new ComboBox { Header = "Género" };
             cmbGenero.Items.Add("Femenino");
             cmbGenero.Items.Add("Masculino");
@@ -820,6 +823,7 @@ namespace JustificantesUPP
 
             panel.Children.Add(txtNombre);
             panel.Children.Add(txtCorreo);
+            panel.Children.Add(txtCorreoCoordinacion);
             panel.Children.Add(cmbGenero);
             panel.Children.Add(txtFirma);
             dialog.Content = panel;
@@ -829,6 +833,7 @@ namespace JustificantesUPP
             {
                 owner.Nombre = txtNombre.Text ?? "";
                 owner.Correo = txtCorreo.Text ?? "";
+                owner.CorreoCoordinacion = txtCorreoCoordinacion.Text ?? "";
                 owner.Genero = (Genero)cmbGenero.SelectedIndex;
                 owner.firmapath = txtFirma.Text ?? "";
                 owner.Save();

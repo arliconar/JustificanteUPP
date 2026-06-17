@@ -29,12 +29,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -43,7 +39,7 @@
               "RelativeDocumentMoniker": "..\\..\\..\\..\\.nuget\\packages\\microsoft.windowsappsdk.base\\1.8.251216001\\buildTransitive\\Microsoft.WindowsAppSDK.SingleFile.targets",
               "ToolTip": "C:\\Users\\artzm\\.nuget\\packages\\microsoft.windowsappsdk.base\\1.8.251216001\\buildTransitive\\Microsoft.WindowsAppSDK.SingleFile.targets",
               "RelativeToolTip": "..\\..\\..\\..\\.nuget\\packages\\microsoft.windowsappsdk.base\\1.8.251216001\\buildTransitive\\Microsoft.WindowsAppSDK.SingleFile.targets",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAQwBQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAQwBIAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
               "WhenOpened": "2026-06-15T16:52:01.285Z",
               "EditorCaption": ""
@@ -95,6 +91,10 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-20T20:12:07.797Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             }
           ]
         }

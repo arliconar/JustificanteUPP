@@ -8,6 +8,7 @@ namespace JustificantesUPP.Modelos
     public class Owner:Profesor
     {
        public string firmapath = "G:\\Mi unidad\\firma\\Firma email UPP\\Diapositiva2.png";
+       public string CorreoCoordinacion { get; set; } = "";
 
        public static Owner Load()
        {
@@ -21,6 +22,7 @@ namespace JustificantesUPP.Modelos
            {
                 Nombre = "Dummy Dumy",
                 Correo = "dummy@upp.edu.mx",
+                CorreoCoordinacion = "",
                 Genero = Genero.Masculino,
            };
        }

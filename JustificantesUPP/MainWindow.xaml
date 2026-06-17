@@ -223,6 +223,10 @@
                           Content="Enviar copia al alumno" 
                           IsChecked="True" />
 
+                            <CheckBox x:Name="ChkCopiaCoordinacion" 
+                          Content="Enviar copia a coordinación" 
+                          IsChecked="False" />
+
                             <Button x:Name="BtnEnviarCorreo" 
                         Click="BtnEnviarCorreo_Click"
                         HorizontalAlignment="Stretch" 

@@ -196,7 +196,7 @@ namespace JustificantesUPP.Modelos
 </html>";
         }
 
-        public MimeKit.MimeMessage CrearCorreo()
+        public MimeKit.MimeMessage CrearCorreo(bool enviarCopiaAlumno, bool enviarCopiaCoordinacion)
         {
             var mensaje = new MimeKit.MimeMessage();
             mensaje.Subject = getAsunto();
@@ -214,9 +214,16 @@ namespace JustificantesUPP.Modelos
             {
                 mensaje.To.Add(new MailboxAddress(profesor.Nombre, profesor.Correo));
             }
-            foreach (var alumno in Alumnos)
+            if (enviarCopiaAlumno)
             {
-                mensaje.Cc.Add(new MailboxAddress(alumno.Nombre, alumno.Correo));
+                foreach (var alumno in Alumnos)
+                {
+                    mensaje.Cc.Add(new MailboxAddress(alumno.Nombre, alumno.Correo));
+                }
+            }
+            if (enviarCopiaCoordinacion && !string.IsNullOrWhiteSpace(OwnerData.CorreoCoordinacion))
+            {
+                mensaje.Cc.Add(new MailboxAddress("Coordinación", OwnerData.CorreoCoordinacion));
             }
             
             return mensaje;
